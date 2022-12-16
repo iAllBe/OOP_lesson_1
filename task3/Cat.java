@@ -1,17 +1,12 @@
-﻿public class Cat {
-    private String name;
-    private String owner;
+﻿public class Cat extends Animal {
 
     public Cat(String name, String owner) {
-        this.name = name;
-        this.owner = owner;
+        super(name, owner);
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public String verticalMove() {
+        return "залезает на шкаф/дерево";
     }
 
-    public String getOwner() {
-        return owner;
-    }
 }
