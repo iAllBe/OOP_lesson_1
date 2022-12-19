@@ -1,3 +1,6 @@
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Main {
     public static void main(String[] args) {
         Person irina = new Person("Ирина", 20);
@@ -9,7 +12,7 @@ public class Main {
         Person serg = new Person("Сергей", 30);
 
         GeoTree geoTree = new GeoTree();
-        
+
         geoTree.addParentChildre(irina, vasya);
         geoTree.addParentChildre(irina, masha);
         geoTree.addParentChildre(vasya, jenya);
@@ -18,10 +21,16 @@ public class Main {
         geoTree.addParentChildre(jenya, ivan);
         geoTree.addSpouse(ksu, serg);
 
-        new Reserch(geoTree).searchForRelation(irina, Relationship.parent);
-        new Reserch(geoTree).searchForRelation(ivan, Relationship.children);
-        new Reserch(geoTree).searchForRelation(ksu, Relationship.spouse);
-        new Reserch(geoTree).searchForAge(30);
+        try (FileWriter writer = new FileWriter("file.txt", false)) {
+            writer.write(new Reserch(geoTree).searchForRelation(irina, Relationship.parent) + '\n');
+            writer.write(new Reserch(geoTree).searchForRelation(ivan, Relationship.children) + '\n');
+            writer.write(new Reserch(geoTree).searchForRelation(ksu, Relationship.spouse) + '\n');
+            writer.write(new Reserch(geoTree).searchForAge(30) + '\n');
+
+            writer.flush();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
 }

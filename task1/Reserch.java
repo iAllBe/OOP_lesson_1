@@ -16,30 +16,31 @@ public class Reserch {
      * 
      * @param p  Человек
      * @param re Отношение
-     * @return
+     * @return Строка ответа на запрос
      */
-    public void searchForRelation(Person p, Relationship re) {
+    public String searchForRelation(Person p, Relationship re) {
         for (Node t : tree) {
             if (t.p1.fullName == p.fullName && t.re == re) {
                 result.add(t.p2.fullName);
             }
         }
 
-        System.out.println(p.fullName + " является " + re + " для людей: " + result);
+        return p.fullName + " является " + re + " для людей: " + result;
     }
 
     /**
      * Поиск человека по возрасту от определенного количества лет
      * @param age С какого возраста искать
+     * @return Строка ответа на запрос
      */
-    public void searchForAge(Integer age) {
+    public String searchForAge(Integer age) {
         for (Node n : tree) {
             if (n.p1.age >= age) {
                 resultAge.add(n.p1.fullName);
             }
         }
 
-        System.out.println("Люди от " + age + " лет: " + resultAge);
+        return "Люди от " + age + " лет: " + resultAge;
     }
 
 }
