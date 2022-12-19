@@ -5,7 +5,8 @@
     }
 
     @Override
-    public String verticalMove() {
-        return "* Собаки не умеют лазить по шкафам/деревьям :(";
+    public void goToHuman(Human human) {
+        System.out.println(human.getName() + " зовет собаку по имени " + name);
+        System.out.println("Собакам без разницы кто вы, они любят людей! Собака подходит к вам!");
     }
 }

@@ -8,8 +8,8 @@
 
         Dog bobik = new Dog("Бобик", "Нет хозяина");
 
-        ivan.calling(barsik);
-        ivan.calling(myrzik);
-        ivan.calling(bobik);
+        barsik.goToHuman(ivan);
+        myrzik.goToHuman(ivan);
+        bobik.goToHuman(ivan);
     }
 }

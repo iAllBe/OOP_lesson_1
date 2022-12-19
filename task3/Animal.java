@@ -1,4 +1,4 @@
-﻿public abstract class Animal implements Vertical {
+﻿public abstract class Animal {
     protected String name;
     protected String owner;
 
@@ -6,6 +6,8 @@
         this.name = name;
         this.owner = owner;
     }
+
+    public abstract void goToHuman(Human human);
 
     public String getName() {
         return name;
