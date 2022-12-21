@@ -1,7 +1,7 @@
 ﻿public class Cat extends Animal implements Vertical {
 
-    public Cat(String name, String owner) {
-        super(name, owner);
+    Cat(String name, String owner, Integer age) {
+        super(name, owner, age);
     }
 
     @Override
